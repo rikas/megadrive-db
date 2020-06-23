@@ -7,25 +7,51 @@
       </h1>
     </div>
 
-    <div class="filter-controls mb-4">
-      <Search :games="games" @onComplete="searchFilter">
+    <h2 class="subtitle">
+      The collection is <strong>{{ percentageComplete }}%</strong>
+      complete — ({{ ownedGames.length }} / {{ games.length }})
+    </h2>
+
+    <div class="filter-controls">
+      <Search :games="games" @onComplete="onSearch">
       </Search>
 
       <Dropdown v-model="ownedFilter" :options="ownedOptions">
       </Dropdown>
     </div>
 
-    <h2>Listing {{ filteredGames.length }} games</h2>
+    <h2>Listing {{ pluralize(filteredGames.length, 'game') }}</h2>
 
-    <games-table :owned-filter="ownedFilter" @onLoad="gamesLoaded">
+    <games-table :games="filteredGames">
     </games-table>
+
+    <footer>
+      &copy; {{ new Date().getFullYear() }}
+      <a href="https://oterosantos.com">Ricardo Otero</a>
+    </footer>
   </div>
 </template>
 
 <script>
-import GamesTable, { OWNED_OPTIONS } from './GamesTable';
+import axios from 'axios';
+import GamesTable from './GamesTable';
 import Search from './Search';
 import Dropdown from './Dropdown';
+
+export const OWNED_OPTIONS = [
+  {
+    key: 'both',
+    label: 'All games'
+  },
+  {
+    key: 'owned',
+    label: 'Owned'
+  },
+  {
+    key: 'not_owned',
+    label: 'Not owned'
+  }
+];
 
 export default {
   components: {
@@ -43,36 +69,60 @@ export default {
     };
   },
   computed: {
-    filteredGames() {
-      const ownedGames = this.games.filter(game => game.owned);
-      const notOwned = this.games.filter(game => !game.owned);
-
-      if (this.ownedFilter === 'both') {
-        return this.games;
+    ownedGames() {
+      return this.games.filter(game => game.owned);
+    },
+    missingGames() {
+      return this.games.filter(game => !game.owned);
+    },
+    percentageComplete() {
+      if (this.games.length === 0) {
+        return 0.0.toFixed(2);
       }
 
-      return this.ownedFilter === 'owned' ? ownedGames : notOwned;
+      return ((this.ownedGames.length * 100) / this.games.length).toFixed(2);
+    },
+    filteredGames() {
+      let filtered = this.games;
+
+      if (this.ownedFilter === 'both') {
+        filtered = this.games;
+      } else {
+        filtered = (this.ownedFilter === 'owned') ? this.ownedGames : this.missingGames;
+      }
+
+      if (this.nameSearch !== '') {
+        filtered = filtered.filter(game => game.name.match(new RegExp(this.nameSearch, 'i')));
+      }
+
+      return filtered;
     }
   },
+  mounted() {
+    axios.get('/games.json')
+      .then(response => {
+        this.games = response.data;
+      })
+      .catch(error => {
+        console.log(error);
+      })
+      .then(() => {
+        this.loading = false;
+      });
+  },
   methods: {
-    searchFilter(search) {
+    pluralize(count, text) {
+      let finalText = text;
 
+      if (count > 1 || count === 0) {
+        finalText = `${finalText}s`;
+      }
+
+      return `${count} ${finalText}`;
     },
-    gamesLoaded(games) {
-      this.games = games;
-      this.loading = false;
+    onSearch(search) {
+      this.nameSearch = search;
     }
   }
 };
 </script>
-
-<style>
-.main-title {
-  display: flex;
-  align-items: center;
-}
-
-.filter-controls {
-  display: flex;
-}
-</style>

@@ -1,20 +1,19 @@
 <template>
-  <div ref="input" class="search">
+  <div class="search">
     <input
+      ref="input"
       v-model="input"
-      type="search"
+      type="text"
       class="search-field"
       placeholder="Search"
-      @focus="showSuggestion = true"
-      @blur="showSuggestion = false"
-      @input="resetSuggestion"
+      @input="resetOption"
       @keydown.prevent.enter="onEnter"
-      @keydown.prevent.up="focusSuggestionsUp"
-      @keydown.prevent.down="focusSuggestionsDown" />
-    <SelectOptions v-if="suggestedGames && showSuggestion">
+      @keydown.prevent.up="focusOptionsUp"
+      @keydown.prevent.down="focusOptionsDown" />
+    <SelectOptions v-show="shouldShowOptions" :visible="shouldShowOptions" @onHide="optionsHide">
       <ul>
         <li v-for="(game, index) in suggestedGames" :key="game.id">
-          <button :class="{ focus: index === focusedSuggestion }" @click="clickSuggestion">
+          <button :class="{ focus: index === focusedOption }" @click="clickOption">
             <span class="mr-1"><OwnedIcon :game="game"></OwnedIcon></span> {{ game.name }}
           </button>
         </li>
@@ -44,12 +43,15 @@ export default {
   },
   data() {
     return {
-      input: 'sonic',
-      showSuggestion: false,
-      focusedSuggestion: 0
+      input: '',
+      focusedOption: -1,
+      showOptions: false
     };
   },
   computed: {
+    shouldShowOptions() {
+      return this.suggestedGames.length > 1 && this.showOptions;
+    },
     suggestedGames() {
       if (!this.input || this.input === '') {
         return [];
@@ -61,34 +63,42 @@ export default {
     }
   },
   methods: {
-    clickSuggestion(event) {
+    optionsHide() {
+      this.showOptions = false;
+    },
+    clickOption(event) {
       const { target } = event;
       const { innerText } = target;
 
       this.input = innerText.trim();
       this.emitSelection();
     },
-    resetSuggestion() {
-      this.focusedSuggestion = 0;
-    },
-    focusSuggestionsDown() {
-      const newIndex = this.focusedSuggestion + 1;
+    resetOption() {
+      if (this.input.length > 1) {
+        this.showOptions = true;
+      }
 
-      this.focusedSuggestion = Math.min(this.maxResults - 1, newIndex);
+      this.focusedOption = -1;
     },
-    focusSuggestionsUp() {
-      const newIndex = this.focusedSuggestion - 1;
+    focusOptionsDown() {
+      const newIndex = this.focusedOption + 1;
 
-      this.focusedSuggestion = Math.max(newIndex, 0);
+      this.focusedOption = Math.min(this.maxResults - 1, newIndex);
+    },
+    focusOptionsUp() {
+      const newIndex = this.focusedOption - 1;
+
+      this.focusedOption = Math.max(newIndex, 0);
     },
     onEnter() {
-      if (this.focusedSuggestion) {
-        this.input = this.suggestedGames[this.focusedSuggestion].name;
+      if (this.focusedOption > -1) {
+        this.input = this.suggestedGames[this.focusedOption].name;
       }
 
       this.emitSelection();
     },
     emitSelection() {
+      this.showOptions = false;
       this.$emit('onComplete', this.input);
       this.$refs.input.blur();
     }
@@ -99,6 +109,7 @@ export default {
 <style lang="scss">
 .search {
   position: relative;
+  margin-right: 60px;
   width: 400px;
 }
 

@@ -10,6 +10,15 @@ $control-color: #d9d9d9;
   width: 1200px;
 }
 
+a, a:visited {
+  color: $primary-color;
+}
+
+a:hover, a:focus {
+  outline: none;
+  color: darken($primary-color, 20);
+}
+
 body {
   font-family: 'Open Sans', sans-serif;
   color: $body-color;
@@ -21,6 +30,32 @@ h1, h2, h3, h4, h5, h6 {
 
 h1 {
   font-size: 2.3em;
+}
+
+/* Main page */
+.main-title {
+  display: flex;
+  align-items: center;
+  margin: 0;
+}
+
+.filter-controls {
+  display: flex;
+  margin: 1rem 0 3rem 0;
+}
+
+h2.subtitle {
+  font-size: 1.3em;
+  margin: 0;
+  margin-top: -20px;
+  letter-spacing: 0.02em;
+  margin-bottom: 2rem;
+  font-weight: 200;
+  color: lighten($body-color, 20);
+
+  strong {
+    border-bottom: 1px solid $control-color;
+  }
 }
 
 /* Form */
@@ -59,4 +94,8 @@ table {
   td {
     padding: 10px;
   }
+}
+
+footer {
+  margin-top: 30px
 }

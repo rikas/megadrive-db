@@ -44,6 +44,7 @@ export default {
 
 <style lang="scss">
 .select-options {
+  z-index: 100;
   position: absolute;
   background: #fff;
   width: 100%;
