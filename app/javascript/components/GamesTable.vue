@@ -6,10 +6,18 @@
           Num.
         </th>
         <th>Name</th>
-        <th>Box</th>
-        <th>Cartridge</th>
-        <th>Manual</th>
-        <th>PT Manual</th>
+        <th width="90">
+          Box
+        </th>
+        <th width="90">
+          Cartridge
+        </th>
+        <th width="90">
+          Manual
+        </th>
+        <th width="90">
+          PT Manual
+        </th>
       </tr>
     </thead>
     <tbody>
@@ -94,7 +102,7 @@ export default {
   td.empty-state {
     text-align: center;
     opacity: .6;
-    padding: 40px;
+    padding: 100px;
   }
 
   td .empty-tag {

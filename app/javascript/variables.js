@@ -19,7 +19,7 @@ export const CartLabels = {
 
 export const BoxLabels = {
   no_box: {
-    label: 'No box',
+    label: 'Missing',
     color: 'danger'
   },
   box_md_eu: {
@@ -38,7 +38,7 @@ export const BoxLabels = {
 
 export const ManualLabels = {
   no_manual: {
-    label: 'No manual',
+    label: 'Missing',
     color: 'danger'
   },
   manual_md_eu: {
