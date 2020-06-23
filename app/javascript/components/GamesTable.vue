@@ -19,10 +19,24 @@
           <OwnedIcon :game="game"></OwnedIcon>
           <span class="ml-3">{{ game.name }}</span>
         </td>
-        <td>{{ game.box }}</td>
-        <td>{{ game.cartridge }}</td>
-        <td>{{ game.manual }}</td>
-        <td>{{ game.pt_manual }}</td>
+        <td>
+          <BoxTag :game="game">
+          </BoxTag>
+        </td>
+        <td>
+          <CartTag :game="game">
+          </CartTag>
+        </td>
+        <td>
+          <ManualTag :game="game">
+          </ManualTag>
+        </td>
+        <td>{{ game.pt_manual ? 'Yes' : 'No' }}</td>
+      </tr>
+      <tr v-if="games.length === 0">
+        <td colspan="6" class="empty-state">
+          No games found!
+        </td>
       </tr>
     </tbody>
   </table>
@@ -30,10 +44,16 @@
 
 <script>
 import OwnedIcon from './OwnedIcon';
+import BoxTag from './BoxTag';
+import ManualTag from './ManualTag';
+import CartTag from './CartTag';
 
 export default {
   components: {
-    OwnedIcon
+    OwnedIcon,
+    BoxTag,
+    ManualTag,
+    CartTag
   },
   props: {
     games: {
@@ -56,8 +76,22 @@ export default {
 </script>
 
 <style>
+  td.empty-state {
+    text-align: center;
+    opacity: .6;
+    padding: 40px;
+  }
+
+  td .empty-tag {
+    opacity: .4;
+  }
+
+  td .danger {
+    color: red;
+  }
+
   .missing-row {
-    opacity: .75;
+    opacity: .50;
   }
 
   .warning-row {

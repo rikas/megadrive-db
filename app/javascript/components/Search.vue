@@ -50,7 +50,7 @@ export default {
   },
   computed: {
     shouldShowOptions() {
-      return this.suggestedGames.length > 1 && this.showOptions;
+      return this.suggestedGames.length > 0 && this.showOptions;
     },
     suggestedGames() {
       if (!this.input || this.input === '') {
@@ -109,12 +109,11 @@ export default {
 <style lang="scss">
 .search {
   position: relative;
-  margin-right: 60px;
-  width: 400px;
+  margin-right: 20px;
 }
 
 .search-field {
-  position: relative;
   width: 100%;
+  width: 400px;
 }
 </style>

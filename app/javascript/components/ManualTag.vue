@@ -9,19 +9,19 @@
 
 <script>
 const LABELS = {
-  no_box: {
-    label: 'No box',
+  no_manual: {
+    label: 'No manual',
     color: 'danger'
   },
-  box_md_eu: {
+  manual_md_eu: {
     label: 'EU',
     color: 'success'
   },
-  box_md_jp: {
+  manual_md_jp: {
     label: 'JP',
     color: 'danger'
   },
-  box_genesis: {
+  manual_genesis: {
     label: 'Genesis',
     color: 'danger'
   }
@@ -36,8 +36,8 @@ export default {
   },
   computed: {
     info() {
-      const { box } = this.game;
-      const info = LABELS[box];
+      const { manual } = this.game;
+      const info = LABELS[manual];
 
       return info;
     }

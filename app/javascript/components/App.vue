@@ -12,15 +12,17 @@
       complete — ({{ ownedGames.length }} / {{ games.length }})
     </h2>
 
-    <div class="filter-controls">
-      <Search :games="games" @onComplete="onSearch">
-      </Search>
+    <div class="table-summary">
+      <h2>Listing {{ pluralize(filteredGames.length, 'game') }}</h2>
 
-      <Dropdown v-model="ownedFilter" :options="ownedOptions">
-      </Dropdown>
+      <div class="filter-controls">
+        <Search :games="games" @onComplete="onSearch">
+        </Search>
+
+        <Dropdown v-model="ownedFilter" :options="ownedOptions">
+        </Dropdown>
+      </div>
     </div>
-
-    <h2>Listing {{ pluralize(filteredGames.length, 'game') }}</h2>
 
     <games-table :games="filteredGames">
     </games-table>

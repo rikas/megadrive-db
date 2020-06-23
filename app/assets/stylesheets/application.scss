@@ -22,10 +22,12 @@ a:hover, a:focus {
 body {
   font-family: 'Open Sans', sans-serif;
   color: $body-color;
+  background-color: lighten($body-color, 70);
 }
 
 h1, h2, h3, h4, h5, h6 {
   font-family: 'Oswald', sans-serif;
+  color: lighten($body-color, 10);
 }
 
 h1 {
@@ -38,10 +40,15 @@ h1 {
   align-items: center;
   margin: 0;
 }
-
-.filter-controls {
+.table-summary {
   display: flex;
-  margin: 1rem 0 3rem 0;
+  justify-content: space-between;
+
+  .filter-controls {
+    display: flex;
+    margin: 1rem 0 0 0;
+    align-items: center;
+  }
 }
 
 h2.subtitle {
@@ -82,6 +89,7 @@ input, .dropdown {
 table {
   width: 100%;
   border-collapse: collapse;
+  background: #fff;
 
   th {
     margin: 0;
