@@ -1,13 +1,14 @@
 @import url('https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,400;0,700;1,400&family=Oswald:wght@300;700&display=swap');
-@import './utilities/spacing';
+@import 'utilities/spacing';
+@import 'utilities/responsive';
 
 $body-color: #333355;
 $primary-color: #40a9ff;
 $control-color: #d9d9d9;
 
 #app {
-  margin: 40px auto;
-  width: 1200px;
+  position: relative;
+  margin: 10px auto;
 }
 
 a, a:visited {
@@ -31,32 +32,18 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 h1 {
-  font-size: 2.3em;
+  font-size: 7vw;
 }
 
-/* Main page */
-.main-title {
-  display: flex;
-  align-items: center;
-  margin: 0;
-}
-.table-summary {
-  display: flex;
-  justify-content: space-between;
-
-  .filter-controls {
-    display: flex;
-    margin: 1rem 0 0 0;
-    align-items: center;
-  }
+h2 {
+  font-size: 4vw;
 }
 
 h2.subtitle {
-  font-size: 1.3em;
+  font-size: 4vw;
   margin: 0;
   margin-top: -20px;
   letter-spacing: 0.02em;
-  margin-bottom: 2rem;
   font-weight: 200;
   color: lighten($body-color, 20);
 
@@ -65,8 +52,52 @@ h2.subtitle {
   }
 }
 
+.table-summary {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 1rem;
+  padding-top: 1rem;
+
+  h2 {
+    flex-shrink: 0;
+    display: none;
+  }
+
+  .filter-controls {
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+
+    .search {
+      display: flex;
+      position: relative;
+
+      .search-field {
+        display: inline-block;
+        width: 100%;
+        font-size: 1.1em;
+        line-height: 1.21em;
+        height: 1em;
+        box-shadow: none;
+        background: #fff image-url('search.svg') 20px 48% no-repeat;
+        padding-left: 40px; // to compensate for the icon
+      }
+      ::placeholder {
+        color: darken($control-color, 10);
+      }
+    }
+  }
+
+  .dropdown-wrapper {
+    flex-grow: 1;
+    font-size: 1.1em;
+    margin-top: 1rem;
+  }
+}
+
 /* Form */
 input, .dropdown {
+  -webkit-appearance: none;
   font-size: .9em;
   color: $body-color;
   background: #fff;
@@ -99,11 +130,54 @@ input, .dropdown {
   }
 }
 
-input.search-field {
-  background: #fff image-url('search.svg') 20px 48% no-repeat;
+.select-options {
+  top: 2.3rem;
+  z-index: 100;
+  width: 100%;
+  font-size: .8em;
+  position: absolute;
+  background: #fff;
+  max-height: 100vw;
+  overflow: auto;
+  box-shadow: 0 3px 6px -4px rgba(0,0,0,.12), 0 6px 16px 0 rgba(0,0,0,.08), 0 9px 28px 8px rgba(0,0,0,.05);
+  margin-top: .2rem;
+  padding-bottom: 3px;
+
+  ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+
+    li {
+      margin: 0;
+      padding: 0;
+    }
+  }
+
+  button {
+    text-align: left;
+    display: block;
+    width: 100%;
+    cursor: pointer;
+    color: currentColor;
+    font-size: .9em;
+    background: transparent;
+    border: 0;
+    padding: 8px 20px;
+
+    &:focus, &.focus {
+      outline: none;
+      background-color: #efefef;
+    }
+
+    &:hover {
+      background-color: #efefef;
+    }
+  }
 }
 
 table {
+  font-size: .8em;
   width: 100%;
   border-collapse: collapse;
   background: #fff;
@@ -150,3 +224,5 @@ table {
 footer {
   margin-top: 30px
 }
+
+@import 'bigscreen';

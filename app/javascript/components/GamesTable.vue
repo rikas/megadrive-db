@@ -2,49 +2,49 @@
   <table :style="tableStyle">
     <thead>
       <tr>
-        <th width="50">
+        <th class="hide-sm" width="50">
           Num.
         </th>
         <th>Name</th>
-        <th width="90">
+        <th class="hide-sm">
           Box
         </th>
-        <th width="90">
+        <th class="hide-sm">
           Cartridge
         </th>
-        <th width="90">
+        <th class="hide-sm">
           Manual
         </th>
-        <th width="90">
+        <th class="hide-sm">
           PT Manual
         </th>
       </tr>
     </thead>
     <tbody>
       <tr v-for="game in loadedGames" :key="game.id" :class="tableRowClassName(game)">
-        <td>
+        <td class="hide-sm">
           {{ game.id.toString().padStart(3, '0') }}
         </td>
         <td>
           <OwnedIcon :game="game"></OwnedIcon>
-          <span v-if="loading" class="ml-3">
+          <span v-if="loading" class="ml-2">
             <Placeholder></Placeholder>
           </span>
-          <span v-else class="ml-3">{{ game.name }}</span>
+          <span v-else class="ml-2">{{ game.name }}</span>
         </td>
-        <td>
+        <td class="hide-sm">
           <Tag :value="game.box" :owned="game.owned" :labels="BoxLabels">
           </Tag>
         </td>
-        <td>
+        <td class="hide-sm">
           <Tag :value="game.cartridge" :owned="game.owned" :labels="CartLabels">
           </Tag>
         </td>
-        <td>
+        <td class="hide-sm">
           <Tag :value="game.manual" :owned="game.owned" :labels="ManualLabels">
           </Tag>
         </td>
-        <td>
+        <td class="hide-sm">
           <Tag :value="game.pt_manual.toString()" :owned="game.owned" :labels="PTManualLabels">
           </Tag>
         </td>

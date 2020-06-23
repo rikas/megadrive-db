@@ -1,0 +1,13 @@
+.hide-sm {
+  display: none;
+}
+
+@media only screen and (min-width: 768px) {
+  .hide-sm {
+    display: block;
+  }
+
+  th.hide-sm, td.hide-sm {
+    display: table-cell;
+  }
+}

@@ -1,3 +1,18 @@
+export const OwnedOptions = [
+  {
+    key: 'both',
+    label: 'All games'
+  },
+  {
+    key: 'owned',
+    label: 'Owned games'
+  },
+  {
+    key: 'not_owned',
+    label: 'Games not owned'
+  }
+];
+
 export const CartLabels = {
   no_cart: {
     label: 'No cart',

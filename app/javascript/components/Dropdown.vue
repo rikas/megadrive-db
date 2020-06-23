@@ -64,7 +64,6 @@ export default {
   cursor: pointer;
   position: relative;
   user-select: none;
-  width: 150px;
 
   .selected-option {
     display: flex;

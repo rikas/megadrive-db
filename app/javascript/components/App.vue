@@ -49,21 +49,7 @@ import GamesTable from './GamesTable';
 import Search from './Search';
 import Dropdown from './Dropdown';
 import Placeholder from './Placeholder';
-
-export const OWNED_OPTIONS = [
-  {
-    key: 'both',
-    label: 'All games'
-  },
-  {
-    key: 'owned',
-    label: 'Owned'
-  },
-  {
-    key: 'not_owned',
-    label: 'Not owned'
-  }
-];
+import { OwnedOptions } from '../variables';
 
 export default {
   components: {
@@ -75,7 +61,7 @@ export default {
   data() {
     return {
       nameSearch: '',
-      ownedOptions: OWNED_OPTIONS,
+      ownedOptions: OwnedOptions,
       ownedFilter: 'both',
       games: [],
       loading: true

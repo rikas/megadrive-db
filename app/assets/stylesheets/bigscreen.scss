@@ -1,0 +1,77 @@
+/*****************************************/
+/*** OTHER SCREENS THAT ARE NOT MOBILE ***/
+/*****************************************/
+@media only screen and (min-width: 768px) {
+  #app {
+    margin: 30px auto;
+    width: 70%;
+    min-width: 860px;
+  }
+
+  h1 {
+    font-size: 2.4em;
+  }
+
+  /* Main page */
+  .main-title {
+    display: flex;
+    align-items: center;
+    margin: 0;
+  }
+
+  .table-summary {
+    flex-direction: row;
+    align-items: center;
+    padding-top: 1.5rem;
+
+    h2 {
+      margin: 0;
+      display: inline-block;
+    }
+
+    .filter-controls {
+      display: flex;
+      flex-direction: row;
+      justify-content: flex-end;
+      align-items: center;
+
+      .search {
+        flex-grow: 0;
+
+        .search-field {
+          width: 350px;
+          font-size: 1em;
+        }
+      }
+    }
+
+    .dropdown-wrapper {
+      flex-grow: 0.25;
+      font-size: 1em;
+      margin-left: 10px;
+      margin-top: 0;
+    }
+  }
+
+  h2 {
+    font-size: 1.5em;
+  }
+
+  h2.subtitle {
+    font-size: 1.3em;
+    margin-bottom: 2rem;
+  }
+
+  table {
+    font-size: 1em;
+
+    td.num, th.num {
+      display: table-cell;
+    }
+  }
+
+  .select-options {
+    width: 100%;
+    font-size: 1em;
+  }
+}

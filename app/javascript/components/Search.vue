@@ -6,6 +6,7 @@
       type="text"
       class="search-field"
       placeholder="Search games"
+      autocomplete="off"
       :disabled="disabled"
       @input="resetOption"
       @keydown.prevent.enter="onEnter"
@@ -48,7 +49,7 @@ export default {
   },
   data() {
     return {
-      input: '',
+      input: 'sonic',
       focusedOption: -1,
       showOptions: false
     };
@@ -110,16 +111,3 @@ export default {
   }
 };
 </script>
-
-<style lang="scss">
-.search {
-  position: relative;
-  margin-right: 20px;
-}
-
-.search-field {
-  width: 100%;
-  padding-left: 40px; // to compensate for the icon
-  width: 330px;
-}
-</style>
