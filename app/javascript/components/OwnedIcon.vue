@@ -1,6 +1,6 @@
 <template>
   <span>
-    <i v-if="isOwned" class="fas fa-check"></i>
+    <i v-if="isOwned" class="fas fa-check success"></i>
     <i v-else class="far fa-circle"></i>
   </span>
 </template>

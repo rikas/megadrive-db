@@ -2,7 +2,9 @@
   <table>
     <thead>
       <tr>
-        <th width="50">Num.</th>
+        <th width="50">
+          Num.
+        </th>
         <th>Name</th>
         <th>Box</th>
         <th>Cartridge</th>
@@ -20,18 +22,21 @@
           <span class="ml-3">{{ game.name }}</span>
         </td>
         <td>
-          <BoxTag :game="game">
-          </BoxTag>
+          <Tag :value="game.box" :owned="game.owned" :labels="BoxLabels">
+          </Tag>
         </td>
         <td>
-          <CartTag :game="game">
-          </CartTag>
+          <Tag :value="game.cartridge" :owned="game.owned" :labels="CartLabels">
+          </Tag>
         </td>
         <td>
-          <ManualTag :game="game">
-          </ManualTag>
+          <Tag :value="game.manual" :owned="game.owned" :labels="ManualLabels">
+          </Tag>
         </td>
-        <td>{{ game.pt_manual ? 'Yes' : 'No' }}</td>
+        <td>
+          <Tag :value="game.pt_manual.toString()" :owned="game.owned" :labels="PTManualLabels">
+          </Tag>
+        </td>
       </tr>
       <tr v-if="games.length === 0">
         <td colspan="6" class="empty-state">
@@ -44,22 +49,32 @@
 
 <script>
 import OwnedIcon from './OwnedIcon';
-import BoxTag from './BoxTag';
-import ManualTag from './ManualTag';
-import CartTag from './CartTag';
+import Tag from './Tag';
+import {
+  CartLabels,
+  ManualLabels,
+  PTManualLabels,
+  BoxLabels
+} from '../variables';
 
 export default {
   components: {
     OwnedIcon,
-    BoxTag,
-    ManualTag,
-    CartTag
+    Tag
   },
   props: {
     games: {
       type: Array,
       default: () => []
     }
+  },
+  data() {
+    return {
+      CartLabels,
+      ManualLabels,
+      PTManualLabels,
+      BoxLabels
+    };
   },
   methods: {
     tableRowClassName({ status }) {
@@ -75,7 +90,7 @@ export default {
 };
 </script>
 
-<style>
+<style lang="scss">
   td.empty-state {
     text-align: center;
     opacity: .6;
@@ -87,7 +102,11 @@ export default {
   }
 
   td .danger {
-    color: red;
+    color: #992222;
+  }
+
+  td .success {
+    color: #229922;
   }
 
   .missing-row {
@@ -95,7 +114,11 @@ export default {
   }
 
   .warning-row {
-    background: oldlace;
+    background: #fdf5e6;
+
+    .fas.success {
+      color: darken(#fdf5e6, 30);
+    }
   }
 
   .success-row {
