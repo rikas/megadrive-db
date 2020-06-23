@@ -40,6 +40,10 @@
       &copy; {{ new Date().getFullYear() }}
       <a href="https://oterosantos.com">Ricardo Otero</a>
     </footer>
+
+    <button ref="totop" class="back-to-top show" @click="backToTop">
+      Top <span class="arrow">&rarr;</span>
+    </button>
   </div>
 </template>
 
@@ -121,6 +125,18 @@ export default {
     },
     onSearch(search) {
       this.nameSearch = search;
+    },
+    backToTop() {
+      // document.body.scrollTop = 0;
+      // document.documentElement.scrollTop = 0;
+
+      this.$refs.totop.blur();
+
+      window.scroll({
+        top: 0,
+        left: 0,
+        behavior: 'smooth'
+      });
     }
   }
 };
