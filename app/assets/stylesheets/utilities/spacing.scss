@@ -1,0 +1,54 @@
+$spacings: ("0": 0, "1": 0.25, "2": 0.5, "3": 1, "4": 1.5, "5": 3);
+$spacer: 1rem;
+
+// Creates spacers for padding and margin.
+// Example: mt-4
+// 1st letter:
+//   m - margin
+//   p - padding
+// 2nd letter:
+//   t - top
+//   b - bottom
+//   l - left
+//   r - right
+@each $name, $size in $spacings {
+  .mt-#{$name} {
+    margin-top: $spacer * $size;
+  }
+
+  .mb-#{$name} {
+    margin-bottom: $spacer * $size;
+  }
+
+  .ml-#{$name} {
+    margin-left: $spacer * $size;
+  }
+
+  .mr-#{$name} {
+    margin-right: $spacer * $size;
+  }
+
+  .m-#{$name} {
+    margin: $spacer * $size;
+  }
+
+  .pt-#{$name} {
+    padding-top: $spacer * $size;
+  }
+
+  .pb-#{$name} {
+    padding-bottom: $spacer * $size;
+  }
+
+  .pl-#{$name} {
+    padding-left: $spacer * $size;
+  }
+
+  .pr-#{$name} {
+    padding-right: $spacer * $size;
+  }
+
+  .p-#{$name} {
+    padding: $spacer * $size;
+  }
+};

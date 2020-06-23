@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>🎮 My Mega Drive list</title>
+    <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
+    <%= stylesheet_link_tag 'application', media: 'all' %>
+    <%= stylesheet_pack_tag 'main' %>
+    <script src="https://kit.fontawesome.com/61b8e38b7a.js" crossorigin="anonymous"></script>
+  </head>
+
+  <body>
+    <%= yield %>
+    <%= javascript_pack_tag 'application' %>
+  </body>
+</html>

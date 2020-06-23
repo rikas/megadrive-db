@@ -1,0 +1,22 @@
+{
+  "name": "megadrive_db",
+  "private": true,
+  "dependencies": {
+    "@rails/activestorage": "^6.0.0",
+    "@rails/ujs": "^6.0.0",
+    "@rails/webpacker": "4.2.2",
+    "axios": "^0.19.2",
+    "eslint-plugin-vue": "^6.2.2",
+    "turbolinks": "^5.2.0",
+    "vue": "^2.6.11",
+    "vue-eslint-parser": "^7.1.0",
+    "vue-loader": "^15.9.2",
+    "vue-template-compiler": "^2.6.11"
+  },
+  "version": "0.1.0",
+  "devDependencies": {
+    "babel-eslint": "^10.1.0",
+    "eslint": "^7.3.0",
+    "webpack-dev-server": "^3.11.0"
+  }
+}
