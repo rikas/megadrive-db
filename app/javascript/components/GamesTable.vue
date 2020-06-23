@@ -6,16 +6,16 @@
           Num.
         </th>
         <th>Name</th>
-        <th class="hide-sm">
+        <th class="hide-sm" width="90">
           Box
         </th>
-        <th class="hide-sm">
+        <th class="hide-sm" width="90">
           Cartridge
         </th>
-        <th class="hide-sm">
+        <th class="hide-sm" width="90">
           Manual
         </th>
-        <th class="hide-sm">
+        <th class="hide-sm" width="90">
           PT Manual
         </th>
       </tr>
