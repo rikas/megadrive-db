@@ -99,12 +99,6 @@ export default {
 </script>
 
 <style lang="scss">
-  td.empty-state {
-    text-align: center;
-    opacity: .6;
-    padding: 100px;
-  }
-
   td .empty-tag {
     opacity: .4;
   }

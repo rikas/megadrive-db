@@ -92,6 +92,10 @@ table {
   background: #fff;
 
   tr:hover {
+    td.empty-state {
+      background: inherit;
+    }
+
     td {
       background: #efefef;
     }
@@ -110,6 +114,12 @@ table {
   }
 
   tr:first-of-type {
+    td.empty-state {
+      text-align: center;
+      opacity: .6;
+      padding: 100px;
+    }
+
     td {
       padding-top: 12px; // to compensate the box shadow
     }
