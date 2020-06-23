@@ -5,7 +5,8 @@
       v-model="input"
       type="text"
       class="search-field"
-      placeholder="Search"
+      placeholder="Search games"
+      :disabled="disabled"
       @input="resetOption"
       @keydown.prevent.enter="onEnter"
       @keydown.prevent.up="focusOptionsUp"
@@ -39,6 +40,10 @@ export default {
     maxResults: {
       type: Number,
       default: 7
+    },
+    disabled: {
+      type: Boolean,
+      default: false
     }
   },
   data() {
@@ -114,6 +119,7 @@ export default {
 
 .search-field {
   width: 100%;
-  width: 400px;
+  padding-left: 40px; // to compensate for the icon
+  width: 330px;
 }
 </style>

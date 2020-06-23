@@ -84,6 +84,23 @@ input, .dropdown {
     border-color: $primary-color;
     box-shadow: 0 0 0 2px rgba(24, 144, 255, .2);
   }
+
+  &:disabled, &.disabled {
+    cursor: not-allowed;
+    pointer-events: hover;
+    opacity: .5;
+
+    &:hover {
+      border-color: $control-color;
+    }
+    &:active, &:focus {
+      border-color: $control-color;
+    }
+  }
+}
+
+input.search-field {
+  background: image-url('search.svg') 20px 48% no-repeat;
 }
 
 table {

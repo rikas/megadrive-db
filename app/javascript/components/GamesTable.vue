@@ -1,5 +1,5 @@
 <template>
-  <table>
+  <table :style="tableStyle">
     <thead>
       <tr>
         <th width="50">
@@ -21,13 +21,16 @@
       </tr>
     </thead>
     <tbody>
-      <tr v-for="game in games" :key="game.id" :class="tableRowClassName(game)">
+      <tr v-for="game in loadedGames" :key="game.id" :class="tableRowClassName(game)">
         <td>
           {{ game.id.toString().padStart(3, '0') }}
         </td>
         <td>
           <OwnedIcon :game="game"></OwnedIcon>
-          <span class="ml-3">{{ game.name }}</span>
+          <span v-if="loading" class="ml-3">
+            <Placeholder></Placeholder>
+          </span>
+          <span v-else class="ml-3">{{ game.name }}</span>
         </td>
         <td>
           <Tag :value="game.box" :owned="game.owned" :labels="BoxLabels">
@@ -58,6 +61,7 @@
 <script>
 import OwnedIcon from './OwnedIcon';
 import Tag from './Tag';
+import Placeholder from './Placeholder';
 import {
   CartLabels,
   ManualLabels,
@@ -65,15 +69,39 @@ import {
   BoxLabels
 } from '../variables';
 
+const placeholderGames = () => {
+  const placeholderGames = [];
+
+  for (let i=0; i< 100; i++) {
+    placeholderGames.push({
+      id: i + 1,
+      name: '—',
+      box: '—',
+      cartridge: '—',
+      manual: '—',
+      pt_manual: '—',
+      owned: false,
+      status: 'none'
+    });
+  }
+
+  return placeholderGames;
+};
+
 export default {
   components: {
     OwnedIcon,
-    Tag
+    Tag,
+    Placeholder
   },
   props: {
     games: {
       type: Array,
       default: () => []
+    },
+    loading: {
+      type: Boolean,
+      default: false
     }
   },
   data() {
@@ -83,6 +111,24 @@ export default {
       PTManualLabels,
       BoxLabels
     };
+  },
+  computed: {
+    loadedGames() {
+      if (this.loading) {
+        return placeholderGames();
+      } else {
+        return this.games;
+      }
+    },
+    tableStyle() {
+      if (this.loading) {
+        return {
+          opacity: .4
+        };
+      }
+
+      return {};
+    }
   },
   methods: {
     tableRowClassName({ status }) {

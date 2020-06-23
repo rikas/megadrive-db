@@ -1,6 +1,6 @@
 <template>
   <div class="dropdown-wrapper">
-    <div class="dropdown" @click="toggleOptions">
+    <div class="dropdown" :class="{ disabled }" @click="toggleOptions">
       <div class="selected-option">
         <span>{{ selectedOption.label }}</span>
         <i class="fas fa-chevron-down"></i>
@@ -30,6 +30,10 @@ export default {
     options: {
       type: Array,
       default: () => []
+    },
+    disabled: {
+      type: Boolean,
+      default: true
     }
   },
   data() {
@@ -45,6 +49,10 @@ export default {
       this.$emit('input', this.selectedOption.key);
     },
     toggleOptions() {
+      if (this.disabled) {
+        return;
+      }
+
       this.optionsVisible = !this.optionsVisible;
     }
   }

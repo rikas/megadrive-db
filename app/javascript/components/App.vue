@@ -1,30 +1,39 @@
 <template>
   <div id="app">
     <div class="main-title">
-      <img src="../images/md_icon.png" height="52" />
-      <h1 class="ml-3">
+      <h1>
         My Mega Drive collection
       </h1>
     </div>
 
-    <h2 class="subtitle">
+    <h2 v-if="loading" class="subtitle">
+      <Placeholder width="32" color="#595995"></Placeholder>
+    </h2>
+
+    <h2 v-else class="subtitle">
       The collection is <strong>{{ percentageComplete }}%</strong>
       complete — ({{ ownedGames.length }} / {{ games.length }})
     </h2>
 
     <div class="table-summary">
-      <h2>Listing {{ pluralize(filteredGames.length, 'game') }}</h2>
+      <h2 v-if="loading" style="width:15%">
+        <Placeholder width="100"></Placeholder>
+      </h2>
+
+      <h2 v-else>
+        Listing {{ pluralize(filteredGames.length, 'game') }}
+      </h2>
 
       <div class="filter-controls">
-        <Search :games="games" @onComplete="onSearch">
+        <Search :games="games" :disabled="loading" @onComplete="onSearch">
         </Search>
 
-        <Dropdown v-model="ownedFilter" :options="ownedOptions">
+        <Dropdown v-model="ownedFilter" :options="ownedOptions" :disabled="loading">
         </Dropdown>
       </div>
     </div>
 
-    <games-table :games="filteredGames">
+    <games-table :games="filteredGames" :loading="loading">
     </games-table>
 
     <footer>
@@ -39,6 +48,7 @@ import axios from 'axios';
 import GamesTable from './GamesTable';
 import Search from './Search';
 import Dropdown from './Dropdown';
+import Placeholder from './Placeholder';
 
 export const OWNED_OPTIONS = [
   {
@@ -59,7 +69,8 @@ export default {
   components: {
     GamesTable,
     Search,
-    Dropdown
+    Dropdown,
+    Placeholder
   },
   data() {
     return {
