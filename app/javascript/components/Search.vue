@@ -49,7 +49,7 @@ export default {
   },
   data() {
     return {
-      input: 'sonic',
+      input: '',
       focusedOption: -1,
       showOptions: false
     };
