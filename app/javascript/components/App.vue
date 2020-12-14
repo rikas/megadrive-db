@@ -127,9 +127,6 @@ export default {
       this.nameSearch = search;
     },
     backToTop() {
-      // document.body.scrollTop = 0;
-      // document.documentElement.scrollTop = 0;
-
       this.$refs.totop.blur();
 
       window.scroll({

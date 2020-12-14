@@ -42,8 +42,6 @@ div.placeholder {
   animation-iteration-count: infinite;
   animation-timing-function: linear;
   animation-name: placeholderAnimate;
-  //background: #f6f7f8; // Fallback
-  // background: linear-gradient(to right, #eee 2%, #ddd 18%, #eee 33%);
   background-size: 1300px; // Animation Area
 }
 
