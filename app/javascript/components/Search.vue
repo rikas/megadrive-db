@@ -16,7 +16,13 @@
       <ul>
         <li v-for="(game, index) in suggestedGames" :key="game.id">
           <button :class="{ focus: index === focusedOption }" @click="clickOption">
-            <span class="mr-1"><OwnedIcon :game="game"></OwnedIcon></span> {{ game.name }}
+            <span v-if="game.id > 0" class="mr-1">
+              <OwnedIcon :game="game"></OwnedIcon>
+            </span>
+            <span v-else>
+              <i class="fas fa-search"></i>
+            </span>
+            {{ game.name }}
           </button>
         </li>
       </ul>
@@ -65,7 +71,9 @@ export default {
 
       const matching = this.games.filter(game => game.name.match(new RegExp(this.input, 'i')));
 
-      return matching.slice(0, this.maxResults);
+      const matchingsWithInput = [{ name: this.input, id: -1 }, ...matching];
+
+      return matchingsWithInput.slice(0, this.maxResults);
     }
   },
   methods: {
