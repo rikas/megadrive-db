@@ -1,0 +1,222 @@
+[
+  {
+    "id": 1,
+    "name": "688 Attack Sub",
+    "owned": false,
+    "notes": null,
+    "box": "no_box",
+    "cartridge": "no_cart",
+    "manual": "no_manual",
+    "pt_manual": false,
+    "status": "none"
+  },
+  {
+    "id": 2,
+    "name": "Aaahh!!! Real Monsters",
+    "owned": false,
+    "notes": null,
+    "box": "no_box",
+    "cartridge": "no_cart",
+    "manual": "no_manual",
+    "pt_manual": false,
+    "status": "none"
+  },
+  {
+    "id": 3,
+    "name": "Addams Family Values",
+    "owned": false,
+    "notes": null,
+    "box": "no_box",
+    "cartridge": "no_cart",
+    "manual": "no_manual",
+    "pt_manual": false,
+    "status": "none"
+  },
+  {
+    "id": 4,
+    "name": "Addams Family, The",
+    "owned": false,
+    "notes": null,
+    "box": "no_box",
+    "cartridge": "no_cart",
+    "manual": "no_manual",
+    "pt_manual": false,
+    "status": "none"
+  },
+  {
+    "id": 5,
+    "name": "Adventures of Batman \u0026 Robin, The",
+    "owned": false,
+    "notes": null,
+    "box": "no_box",
+    "cartridge": "no_cart",
+    "manual": "no_manual",
+    "pt_manual": false,
+    "status": "none"
+  },
+  {
+    "id": 6,
+    "name": "Adventures of Mighty Max, The",
+    "owned": true,
+    "notes": null,
+    "box": "box_md_eu",
+    "cartridge": "cart_md_eu",
+    "manual": "manual_md_eu",
+    "pt_manual": false,
+    "status": "full"
+  },
+  {
+    "id": 7,
+    "name": "Aero the Acro-Bat",
+    "owned": false,
+    "notes": null,
+    "box": "no_box",
+    "cartridge": "no_cart",
+    "manual": "no_manual",
+    "pt_manual": false,
+    "status": "none"
+  },
+  {
+    "id": 8,
+    "name": "Aero the Acro-Bat 2",
+    "owned": false,
+    "notes": null,
+    "box": "no_box",
+    "cartridge": "no_cart",
+    "manual": "no_manual",
+    "pt_manual": false,
+    "status": "none"
+  },
+  {
+    "id": 9,
+    "name": "After Burner 2",
+    "owned": true,
+    "notes": "",
+    "box": "box_md_eu",
+    "cartridge": "cart_md_eu",
+    "manual": "manual_md_eu",
+    "pt_manual": false,
+    "status": "full"
+  },
+  {
+    "id": 10,
+    "name": "Aladdin",
+    "owned": true,
+    "notes": "",
+    "box": "box_md_eu",
+    "cartridge": "cart_md_eu",
+    "manual": "manual_md_eu",
+    "pt_manual": false,
+    "status": "full"
+  },
+  {
+    "id": 11,
+    "name": "Alex Kidd in the Enchanted Castle",
+    "owned": true,
+    "notes": "",
+    "box": "box_md_eu",
+    "cartridge": "cart_md_eu",
+    "manual": "manual_md_eu",
+    "pt_manual": false,
+    "status": "full"
+  },
+  {
+    "id": 12,
+    "name": "Alien 3",
+    "owned": false,
+    "notes": null,
+    "box": "no_box",
+    "cartridge": "no_cart",
+    "manual": "no_manual",
+    "pt_manual": false,
+    "status": "none"
+  },
+  {
+    "id": 13,
+    "name": "Alien Soldier",
+    "owned": false,
+    "notes": null,
+    "box": "no_box",
+    "cartridge": "no_cart",
+    "manual": "no_manual",
+    "pt_manual": false,
+    "status": "none"
+  },
+  {
+    "id": 14,
+    "name": "Alien Storm",
+    "owned": false,
+    "notes": null,
+    "box": "no_box",
+    "cartridge": "no_cart",
+    "manual": "no_manual",
+    "pt_manual": false,
+    "status": "none"
+  },
+  {
+    "id": 15,
+    "name": "Alisia Dragoon",
+    "owned": false,
+    "notes": null,
+    "box": "no_box",
+    "cartridge": "no_cart",
+    "manual": "no_manual",
+    "pt_manual": false,
+    "status": "none"
+  },
+  {
+    "id": 16,
+    "name": "Altered Beast",
+    "owned": true,
+    "notes": "",
+    "box": "box_md_eu",
+    "cartridge": "cart_md_eu",
+    "manual": "manual_md_eu",
+    "pt_manual": false,
+    "status": "full"
+  },
+  {
+    "id": 17,
+    "name": "Andre Agassi Tennis",
+    "owned": true,
+    "notes": "",
+    "box": "box_md_eu",
+    "cartridge": "cart_md_eu",
+    "manual": "manual_md_eu",
+    "pt_manual": false,
+    "status": "full"
+  },
+  {
+    "id": 18,
+    "name": "Animaniacs",
+    "owned": false,
+    "notes": null,
+    "box": "no_box",
+    "cartridge": "no_cart",
+    "manual": "no_manual",
+    "pt_manual": false,
+    "status": "none"
+  },
+  {
+    "id": 19,
+    "name": "Another World",
+    "owned": true,
+    "notes": "",
+    "box": "box_md_eu",
+    "cartridge": "cart_md_eu",
+    "manual": "manual_md_eu",
+    "pt_manual": false,
+    "status": "full"
+  },
+  {
+    "id": 20,
+    "name": "Aquatic Games starring James Pond",
+    "owned": true,
+    "notes": "",
+    "box": "box_md_eu",
+    "cartridge": "cart_md_eu",
+    "manual": "manual_md_eu",
+    "pt_manual": false,
+    "status": "full"
+  }
+]
