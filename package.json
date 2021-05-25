@@ -18,7 +18,7 @@
     "babel-eslint": "^10.1.0",
     "cypress": "^7.3.0",
     "eslint": "^7.3.0",
-    "webpack-dev-server": "^3.11.0"
+    "webpack-dev-server": "^3.11.2"
   },
   "scripts": {
     "cypress:open": "cypress open",
