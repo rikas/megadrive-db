@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_06_23_135543) do
+ActiveRecord::Schema.define(version: 2021_05_25_113042) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -49,6 +49,7 @@ ActiveRecord::Schema.define(version: 2020_06_23_135543) do
     t.integer "cartridge", default: 0, null: false
     t.integer "manual", default: 0, null: false
     t.boolean "pt_manual", default: false, null: false
+    t.integer "estimated_price", default: 0
   end
 
 end
