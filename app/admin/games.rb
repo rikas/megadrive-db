@@ -30,6 +30,7 @@ ActiveAdmin.register Game do
     column :cartridge
     column :manual
     column :pt_manual
+    column :estimated_price
 
     actions do |game|
       item 'Owned!', set_owned_admin_game_path(game), method: :patch, class: 'member_link'
