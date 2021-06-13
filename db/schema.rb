@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_05_25_113042) do
+ActiveRecord::Schema.define(version: 2021_05_25_182732) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -50,6 +50,7 @@ ActiveRecord::Schema.define(version: 2021_05_25_113042) do
     t.integer "manual", default: 0, null: false
     t.boolean "pt_manual", default: false, null: false
     t.integer "estimated_price", default: 0
+    t.string "alternative_names", default: [], array: true
   end
 
 end
