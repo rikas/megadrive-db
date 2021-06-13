@@ -1,5 +1,5 @@
 describe('Games list', () => {
-  beforeEach(() => {
+  before(() => {
     cy.intercept('GET', '**/games.json', { fixture: 'games.json' })
     cy.visit('/')
   });
