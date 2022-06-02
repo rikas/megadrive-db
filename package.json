@@ -4,21 +4,21 @@
   "dependencies": {
     "@rails/activestorage": "^6.0.0",
     "@rails/ujs": "^6.0.0",
-    "@rails/webpacker": "5.4.0",
-    "axios": "^0.21.2",
-    "eslint-plugin-vue": "^6.2.2",
+    "@rails/webpacker": "5.4.3",
+    "axios": "^0.27.2",
+    "eslint-plugin-vue": "^9.1.0",
     "turbolinks": "^5.2.0",
-    "vue": "^2.6.14",
-    "vue-eslint-parser": "^7.1.0",
-    "vue-loader": "^15.9.2",
+    "vue": "^3.2.36",
+    "vue-eslint-parser": "^9.0.2",
+    "vue-loader": "^17.0.0",
     "vue-template-compiler": "^2.6.14"
   },
   "version": "0.1.0",
   "devDependencies": {
     "babel-eslint": "^10.1.0",
-    "cypress": "^7.3.0",
-    "eslint": "^7.3.0",
-    "webpack-dev-server": "^3.11.2"
+    "cypress": "^10.0.1",
+    "eslint": "^8.16.0",
+    "webpack-dev-server": "^4.9.1"
   },
   "scripts": {
     "cypress:open": "cypress open",
