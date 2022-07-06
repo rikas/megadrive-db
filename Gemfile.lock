@@ -188,7 +188,7 @@ GEM
     rails-dom-testing (2.0.3)
       activesupport (>= 4.2.0)
       nokogiri (>= 1.6)
-    rails-html-sanitizer (1.4.2)
+    rails-html-sanitizer (1.4.3)
       loofah (~> 2.3)
     railties (6.1.6)
       actionpack (= 6.1.6)
@@ -264,7 +264,7 @@ DEPENDENCIES
   activeadmin
   bootsnap (>= 1.4.2)
   devise
-  jbuilder
+  jbuilder (~> 2.11)
   listen (~> 3.2)
   pg (>= 0.18, < 2.0)
   pry-byebug
